@@ -1,25 +1,24 @@
 <template>
-    <div class="container-lg my-4 NotFound">
+    <main class="container-md my-5">
         <div class="row just justify-content-center">
-            <section class="col-md-9 NotFound__Content">
+            <section class="col NotFound__Content">
+                <h1>{{ $themeConfig.errorTitle }}</h1>
                 <p>
-                    <small>Sorry, but we couldn't find the page you were looking for...</small>
+                    <small>{{ $themeConfig.errorDescription }}</small>
                 </p>
                 <p>
                     <small>
-                        We suggest you try to use the search box, or go to the <NavLink link="/">home page</NavLink>
-                        instead.
+                        <NavLink link="/">{{ $themeConfig.errorHint }}</NavLink>
                     </small>
                 </p>
             </section>
         </div>
-    </div>
+    </main>
 </template>
 
 <style lang="scss">
 .NotFound {
     &__Content {
-        font-family: 'Garamond', serif;
         font-size: 1rem;
 
         @media (min-width: 768px) {

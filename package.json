@@ -1,7 +1,7 @@
 {
-    "name": "vuepress-blog-template",
+    "name": "milanavuckovic.github.io",
     "version": "2021.0.0",
-    "description": "Blog Title",
+    "description": "back2string.art",
     "scripts": {
         "postinstall": "scripts/postinstall.sh",
         "dev": "vuepress dev src",
@@ -19,16 +19,16 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/dvuckovic/vuepress-blog-template.git"
+        "url": "git+https://github.com/milanavuckovic/milanavuckovic.github.io.git"
     },
     "keywords": [
         "vuepress",
-        "blog",
-        "template"
+        "bac2string.art",
+        "milanavuckovic"
     ],
-    "author": "Dusan Vuckovic <dusan@dvuckovic.com>",
+    "author": "Milana Vuckovic <milana.vuckovic@ecmwf.int>",
     "license": "WTFPL",
-    "homepage": "https://dvuckovic.com",
+    "homepage": "https://back2string.art",
     "devDependencies": {
         "@babel/plugin-transform-runtime": "^7.12.10",
         "@popperjs/core": "^2.5.4",

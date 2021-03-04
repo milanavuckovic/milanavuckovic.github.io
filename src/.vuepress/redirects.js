@@ -1,6 +1,6 @@
 export default [
     {
-        from: '/static/',
-        to: '/static-page.html',
+        from: '/about.html',
+        to: '/about/',
     },
 ];

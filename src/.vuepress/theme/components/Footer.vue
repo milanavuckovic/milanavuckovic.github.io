@@ -1,8 +1,8 @@
 <template>
     <footer class="container-fluid flex-grow-1 Footer">
         <div class="container-lg my-3">
-            <div class="row align-items-center">
-                <div class="col-lg-3 order-3 order-lg-1">
+            <div class="row justify-content-between">
+                <div class="col-lg-6 order-2 order-lg-1">
                     <ul
                         v-if="copyright"
                         class="d-flex flex-row justify-content-center justify-content-lg-start m-0 list-unstyled"
@@ -10,53 +10,32 @@
                         <li
                             v-for="item in copyright"
                             v-bind:key="item.text"
-                            class="Footer__Nav__Item"
+                            class="Footer__Nav__Item Footer__Nav__Item--Separated"
                             role="menuitem">
-                            <NavLink v-bind:link="item.link">
-                                {{ item.text }}
-                            </NavLink>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-lg-6 order-2 mt-1 mb-2 mb-lg-0 Footer__Center">
-                    <ul
-                        v-if="syndication"
-                        class="d-flex flex-wrap justify-content-center m-0 list-unstyled"
-                        role="menu">
-                        <li
-                            v-for="item in syndication"
-                            v-bind:key="item.text"
-                            class="mb-1 me-1 Footer__Nav__Item"
-                            role="menuitem">
-                            <NavLink
-                                v-bind:link="item.link"
-                                v-bind:rel="syndication.rel">
-                                <img
-                                    v-if="item.image"
-                                    v-bind:src="item.image"
-                                    v-bind:alt="item.text">
-                                <template v-else>
+                            <small>
+                                <NavLink v-bind:link="item.link">
                                     {{ item.text }}
-                                </template>
-                            </NavLink>
+                                </NavLink>
+                            </small>
                         </li>
                     </ul>
                 </div>
-                <div class="col-lg-3 order-1 order-lg-3 mb-2 mb-lg-0">
+                <div class="col-lg-6 order-1 order-lg-2 mb-2 mb-lg-1">
                     <ul
-                        v-if="links"
                         class="d-flex flex-row justify-content-center justify-content-lg-end m-0 list-unstyled"
                         role="menu">
+                        <li class="me-5 me-md-4 Footer__Nav__Item">
+                            <SearchBox />
+                        </li>
                         <li
                             v-for="item in links"
                             v-bind:key="item.text"
-                            class="Footer__Nav__Item"
+                            class="me-4 Footer__Nav__Item"
                             role="menuitem">
                             <NavLink
                                 v-bind:link="item.link"
-                                v-bind:rel="item.rel"
-                                v-bind:data-bs-toggle="item.toggle">
-                                {{ item.text }}
+                                v-bind:title="item.text">
+                                <BootstrapIcon v-bind:icon="item.icon" />
                             </NavLink>
                         </li>
                     </ul>
@@ -67,7 +46,13 @@
 </template>
 
 <script>
+import SearchBox from '@SearchBox';
+
 export default {
+    components: {
+        SearchBox,
+    },
+
     computed: {
         copyright () {
             return ((this.$themeConfig.footer && this.$themeConfig.footer.copyright) || []);
@@ -86,45 +71,101 @@ export default {
 
 <style lang="scss">
 .Footer {
-    background-color: $dark;
-
-    &__Center {
-        .Footer__Nav__Item {
-            img {
-                opacity: 0.8;
-
-                &:hover {
-                    opacity: 1;
-                }
-            }
-
-            &:after {
-                display: none;
-            }
-        }
-    }
+    background-color: $secondary;
 
     &__Nav {
         &__Item {
-            font-size: 0.8125rem;
-
-            &:after {
+            &--Separated:after {
                 content: '|';
-                color: $light;
+                color: #ccc;
                 margin-left: 5px;
                 margin-right: 7px;
             }
 
-            &:last-child:after {
+            &--Separated:last-child:after {
                 display: none;
             }
 
             a {
-                color: $light;
+                color: $white;
+                opacity: 0.8;
 
                 &:hover {
-                    color: $primary;
+                    color: $white;
+                    opacity: 1;
+                    text-decoration: none;
                 }
+            }
+        }
+    }
+}
+
+.search-box {
+    margin-right: 0;
+
+    @media (max-width: 719px) {
+        & {
+            margin-right: 0;
+        }
+    }
+
+    input {
+        color: $dark;
+        opacity: .8;
+        font-size: 11px;
+        font-weight: 600;
+        width: 175px;
+        line-height: unset;
+        height: 21px;
+        border-color: transparent;
+        background-size: 13px;
+        background-position-x: 4px;
+        background-position-y: 3px;
+        padding-left: 20px;
+
+        &:hover,
+        &:focus {
+            opacity: 1;
+        }
+
+        &:focus {
+            padding-left: 20px;
+            width: 175px;
+        }
+    }
+
+    li {
+        margin: 0;
+    }
+
+    .suggestions {
+        position: relative;
+        top: 2px;
+        z-index: 1000;
+        width: 175px;
+    }
+
+    .suggestion {
+        line-height: 1.2;
+        padding: 0;
+
+        a {
+            width: 100%;
+            display: inline-block;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            color: $dark;
+
+            &:hover {
+                text-decoration: none;
+                color: $primary;
+            }
+
+            .page-title,
+            .header {
+                font-size: 11px;
+                font-weight: 600;
             }
         }
     }

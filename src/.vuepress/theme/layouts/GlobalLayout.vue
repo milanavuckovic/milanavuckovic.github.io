@@ -1,24 +1,24 @@
 <template>
     <div class="d-flex flex-column min-vh-100">
+        <Navigation />
         <Header />
         <DefaultGlobalLayout class="GlobalLayout" />
         <Footer />
-        <EmailModal />
     </div>
 </template>
 
 <script>
-import GlobalLayout from '@app/components/GlobalLayout';
+import Navigation from '@theme/components/Navigation';
 import Header from '@theme/components/Header';
+import GlobalLayout from '@app/components/GlobalLayout';
 import Footer from '@theme/components/Footer';
-import EmailModal from '@theme/components/EmailModal';
 
 export default {
     components: {
-        DefaultGlobalLayout: GlobalLayout,
+        Navigation,
         Header,
+        DefaultGlobalLayout: GlobalLayout,
         Footer,
-        EmailModal,
     },
 
     mounted () {

@@ -10,8 +10,8 @@ const env = {
 };
 
 module.exports = {
-    title: 'Blog Title',
-    description: 'Blog description.',
+    title: 'back2string.art',
+    description: 'Doing string art to kill time in the lockdown..',
     base: '/',
     dest: 'dist',
     head: [
@@ -20,6 +20,20 @@ module.exports = {
             {
                 rel: 'icon',
                 href: '/favicon.ico',
+            },
+        ],
+        [
+            'meta',
+            {
+                name: 'theme-color',
+                content: '#660708',
+            },
+        ],
+        [
+            'link',
+            {
+                rel: 'stylesheet',
+                href: 'https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700|Open+Sans:400,700',
             },
         ],
         [
@@ -49,32 +63,45 @@ module.exports = {
     },
     themeConfig: {
         env,
-        logo: 'https://vuepress.vuejs.org/hero.png',
-        coverHome: 'https://source.unsplash.com/random/2048x1024',
-        coverError: 'https://source.unsplash.com/random/2048x1024',
+        logo: '/images/logo.svg',
+        carouselImages: [
+            '/images/carousel/_MG_1452.JPG',
+            '/images/carousel/_MG_1453.JPG',
+            '/images/carousel/_MG_1455.JPG',
+            '/images/carousel/_MG_1456.JPG',
+            '/images/carousel/_MG_1457.JPG',
+            '/images/carousel/_MG_1459.JPG',
+            '/images/carousel/_MG_1467.JPG',
+            '/images/carousel/_MG_1493.JPG',
+            '/images/carousel/_MG_1496.JPG',
+            '/images/carousel/_MG_1497.JPG',
+            '/images/carousel/_MG_1500.JPG',
+            '/images/carousel/_MG_1501.JPG',
+            '/images/carousel/_MG_1503.JPG',
+            '/images/carousel/_MG_1504.JPG',
+            '/images/carousel/_MG_1507.JPG',
+            '/images/carousel/_MG_1512.JPG',
+            '/images/carousel/_MG_1514.JPG',
+            '/images/carousel/_MG_1516.JPG',
+            '/images/carousel/_MG_1518.JPG',
+        ],
         dateFormat: 'YYYY-MM-DD',
-        errorTitle: '404',
-        errorDescription: 'Not Found',
+        errorTitle: 'Page Not Found',
+        errorDescription: "Sorry, but we couldn't find the page you were looking for...",
+        errorHint: 'Perhaps you can search for it or you can go back to the home page instead.',
         ga: false,
         globalPagination: {
-            lengthPerPage: 4,
+            lengthPerPage: 12,
         },
         sitemap: {
-            // hostname: 'https://example.com',
+            hostname: 'https://back2string.art',
         },
         feed: {
             path: '/rss.xml',
-            canonical_base: 'https://example.com',
+            canonical_base: 'https://back2string.art',
             posts_directories: [ '/posts/' ],
             sort: entries => lodash.reverse(lodash.sortBy(entries, 'date')),
         },
-        contact: [
-            {
-                type: 'github',
-                text: 'Github',
-                link: 'https://github.com',
-            },
-        ],
         smoothScroll: true,
         paginationComponent: 'SimplePagination',
         frontmatters: [
@@ -89,7 +116,7 @@ module.exports = {
                 id: 'post',
                 dirname: 'posts',
                 path: '/',
-                title: '',
+                title: 'Recent',
                 itemPermalink: '/:year/:month/:day/:slug',
                 pagination: {
                     sorter: (prev, next) => {
@@ -117,35 +144,52 @@ module.exports = {
                     },
                 },
             },
+            {
+                id: 'page',
+                dirname: 'pages',
+                itemPermalink: '/:slug',
+            },
         ],
         nav: [
+            {
+                text: 'Collections',
+                link: '/tag/collection/',
+            },
             {
                 text: 'Posts',
                 link: '/tag/post/',
             },
             {
-                text: 'Static',
-                link: '/static-page',
+                text: 'About',
+                link: '/about/',
             },
         ],
         footer: {
             copyright: [
                 {
-                    text: `© ${new Date().getFullYear()}`,
+                    text: `© ${new Date().getFullYear()} back2string.art`,
                     link: '/',
+                },
+                {
+                    text: 'Developed by dvuckovic.com',
+                    link: 'https://dvuckovic.com',
                 },
             ],
             links: [
                 {
-                    text: 'Github',
-                    link: 'https://github.com',
+                    text: 'Twitter',
+                    link: 'https://twitter.com/milanavuckovic3',
+                    icon: 'twitter',
                 },
-            ],
-            syndication: [
                 {
-                    text: 'Powered by VuePress',
-                    link: 'https://vuepress.vuejs.org',
-                    image: 'https://img.shields.io/badge/powered_by-VuePress-3eaf7c?logo=Vue.js',
+                    text: 'Instagram',
+                    link: 'https://instagram.com/back2string.art',
+                    icon: 'instagram',
+                },
+                {
+                    text: 'Github',
+                    link: 'https://github.com/milanavuckovic',
+                    icon: 'github',
                 },
             ],
         },

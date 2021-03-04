@@ -1,95 +1,52 @@
 <template>
-    <main class="container-lg my-3">
-        <h1
-            v-if="title"
-            class="mt-5">
+    <main class="container-md my-5">
+        <h1 v-if="title">
             {{ title }}
         </h1>
         <div
-            class="row"
+            class="row row-cols-1 row-cols-sm-2 row-cols-xl-3 g-4 my-3"
             itemscope
             itemtype="http://schema.org/Blog">
             <article
-                v-for="(page, index) in pages"
+                v-for="page in pages"
                 v-bind:key="page.key"
-                v-bind:class="{
-                    'col-12': index === 0,
-                    'col-sm-6': index !== 0,
-                    'col-lg-4': index !== 0 && index !== 7 && index !== 8,
-                }"
+                class="col"
                 itemprop="blogPost"
                 itemscope
                 itemtype="https://schema.org/BlogPosting">
                 <meta
                     itemprop="mainEntityOfPage"
                     v-bind:content="page.path">
-                <div
-                    v-bind:class="{
-                        'row align-items-center': index === 0,
-                    }">
+                <div class="card overflow-hidden bg-dark text-white Card">
+                    <img
+                        v-if="page.frontmatter.image"
+                        v-bind:src="page.frontmatter.image"
+                        v-bind:alt="page.frontmatter.title"
+                        class="card-img"
+                        loading="lazy">
                     <div
-                        class="my-3"
-                        v-bind:class="{
-                            'col-sm-6 col-md-8 col-lg-8': index === 0,
-                        }">
-                        <NavLink
-                            v-if="page.frontmatter.image"
-                            v-bind:link="page.path">
-                            <img
-                                v-bind:src="page.frontmatter.image"
-                                v-bind:alt="page.title"
-                                v-bind:style="{
-                                    maxHeight: index === 0 ? '380px' : undefined,
-                                }"
-                                class="w-100 rounded BaseListLayout__Post__Image">
-                        </NavLink>
-                    </div>
-                    <div
-                        class="my-3"
-                        v-bind:class="{
-                            'col-sm-6 col-md-4 col-lg-4': index === 0,
-                        }">
-                        <header
-                            itemprop="name headline"
-                            class="BaseListLayout__Post__Title">
-                            <div
-                                v-if="page.frontmatter.tags"
-                                class="text-uppercase mb-2 BaseListLayout__Post__Meta BaseListLayout__Post__Meta--Tags"
-                                itemprop="keywords">
-                                <router-link
-                                    v-bind:to="`/tag/${resolvePostTags(page.frontmatter.tags)[0]}`"
-                                    class="me-3">
-                                    {{ resolvePostTags(page.frontmatter.tags)[0] }}
-                                </router-link>
-                            </div>
-                            <h3 class="mt-0 mb-4">
-                                <NavLink v-bind:link="page.path">
-                                    {{ page.title }}
-                                </NavLink>
-                            </h3>
-                        </header>
+                        v-bind:class="getRandomTransition()"
+                        class="position-absolute Card__Overlay">
+                        <h5 class="card-title">{{ page.title }}</h5>
                         <p
-                            class="mb-4 BaseListLayout__Post__Summary"
+                            class="card-text"
                             itemprop="description">
                             {{ page.frontmatter.summary || page.summary }}
                         </p>
-                        <footer>
-                            <div
-                                v-if="page.frontmatter.date"
-                                class="text-uppercase BaseListLayout__Post__Meta BaseListLayout__Post__Meta--Date">
-                                <time
-                                    itemprop="datePublished"
-                                    v-bind:datetime="page.frontmatter.date">
-                                    {{ resolvePostDate(page.frontmatter.date) }}
-                                </time>
-                                <template v-if="page.frontmatter.readingTime">
-                                    <span class="mx-2">
-                                        &bullet;
-                                    </span>
-                                    {{ page.frontmatter.readingTime }}
-                                </template>
-                            </div>
-                        </footer>
+                        <p
+                            v-if="page.frontmatter.date"
+                            class="card-text d-sm-none d-lg-block d-xl-none d-xxl-block">
+                            <time
+                                pubdate
+                                itemprop="datePublished"
+                                v-bind:datetime="page.frontmatter.date">
+                                {{ resolvePostDate(page.frontmatter.date) }}
+                            </time>
+                        </p>
+                        <button class="btn btn-primary d-sm-none d-lg-block">Read more</button>
+                        <NavLink
+                            v-bind:link="page.path"
+                            class="stretched-link" />
                     </div>
                 </div>
             </article>
@@ -97,7 +54,7 @@
         <component
             v-bind:is="paginationComponent"
             v-if="$pagination.length > 1 && paginationComponent"
-            class="my-4 w-100 text-center" />
+            class="mt-5 w-100 text-center" />
     </main>
 </template>
 
@@ -151,90 +108,96 @@ export default {
         },
 
         resolvePostDate (date) {
-            return moment(date).format(this.$themeConfig.dateFormat || 'ddd MMM DD YYYY');
+            return moment(date).fromNow();
         },
 
-        resolvePostTags (tags) {
-            if (!tags || Array.isArray(tags)) return tags;
-            return [ tags ];
+        getRandomTransition () {
+            const transitions = [
+                'Card__Overlay--Top',
+                'Card__Overlay--Left',
+                'Card__Overlay--Right',
+                'Card__Overlay--Bottom',
+            ];
+
+            return transitions[Math.floor(Math.random() * transitions.length)];
         },
     },
 };
 </script>
 
 <style lang="scss">
-.BaseListLayout {
-    &__Post {
-        &__Image {
-            width: 100%;
-            height: 100%;
-            max-height: 380px;
-            min-height: 200px;
-            vertical-align: middle;
-            color: rgba(68,68,68,0);
-            text-indent: 100%;
-            white-space: nowrap;
-            overflow: hidden;
-            background-color: $secondary;
-            -o-object-fit: cover;
-            object-fit: cover;
-            -webkit-animation-name: pulse-color;
-            animation-name: pulse-color;
-            -webkit-animation-duration: 1s;
-            animation-duration: 1s;
-            -webkit-animation-iteration-count: infinite;
-            animation-iteration-count: infinite;
+.Card {
+    border: none;
 
-            @media (min-width: 576px) {
-                & {
-                    max-height: 200px;
-                }
+    &__Overlay {
+        background: rgba(0, 0, 0, 0.5);
+        transition: all 0.15s ease-in-out;
+        width: 100%;
+        height: 100%;
+        padding: 1rem;
+        border-radius: calc(0.25rem - 1px);
+
+        &--Bottom {
+            top: 100%;
+        }
+
+        &--Right {
+            left: 100%;
+        }
+
+        &--Left {
+            right: 100%;
+        }
+
+        &--Top {
+            bottom: 100%;
+        }
+    }
+
+    &__Thumbnail {
+        & + a:after {
+            content: "";
+            background-color: $dark;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            display: block;
+        }
+
+        & + a:hover:after {
+            opacity: 0.2;
+        }
+    }
+
+    &:hover {
+        .Card__Overlay {
+            &--Bottom {
+                top: 0;
             }
 
-            &:hover {
-                filter: brightness(0.5);
+            &--Right {
+                left: 0;
+            }
+
+            &--Left {
+                right: 0;
+            }
+
+            &--Top {
+                bottom: 0;
             }
         }
 
-        &__Meta {
-            &--Tags {
-                font-size: 0.75rem;
-                font-weight: 600;
-                letter-spacing: 0.2px;
-
-                a {
-                    color: $primary;
-
-                    &:hover {
-                        text-decoration: underline;
-                    }
-                }
-            }
-
-            &--Date {
-                font-size: 0.75rem;
-                color: $spanish;
-                letter-spacing: 0.2px;
-            }
+        .btn {
+            color: $white;
         }
+    }
 
-        &__Title {
-            h3 {
-                a {
-                    color: $gainsboro;
-
-                    &:hover {
-                        text-decoration: underline;
-                    }
-                }
-            }
-        }
-
-        &__Summary {
-            font-family: 'Garamond', serif;
-            font-size: 1.125rem;
-            color: $spanish;
-        }
+    .btn {
+        color: $white;
     }
 }
 
@@ -243,40 +206,41 @@ export default {
     padding-left: 0;
     margin: 20px 0;
     border-radius: 4px;
+    border: none;
 
     a {
-        font-family: 'Helvetica', sans-serif;
-        font-size: 0.75rem;
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.9em;
         font-weight: 500;
         text-transform: uppercase;
         transition: none;
         border: none;
+        background-color: $primary;
 
         &:hover {
-            color: $white;
-            background: $primary;
+            background-color: $secondary;
         }
     }
 }
 
 .simple-pagination a {
     margin-right: 20px;
-    color: $black;
+    color: $white;
     height: 38px;
     line-height: 38px;
     transition: all .3s ease;
     position: relative;
     overflow: hidden;
     display: inline-block;
-    background: $white;
+    background: $primary;
     padding: 0 15px;
     text-decoration: none;
-    border: 1px solid $black;
+    border: none;
     border-radius: 5px;
     transition: none;
 
-    &:last-child {
-        margin-right: 0;
+    &:hover {
+        border: none;
     }
 }
 </style>

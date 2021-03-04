@@ -1,26 +1,11 @@
-$crayola: #3eaf7c;
-$black: #000;
-$rich: #111;
-$eerie: #222;
-$jet: #333;
-$onyx: #444;
-$davys: #555;
-$battleship: #888;
-$spanish: #999;
-$silver: #aaa;
-$_light: #ccc;
-$gainsboro: #ddd;
-$cultured: #eee;
-$_white: #fff;
-
 // Bootstrap colors.
-// https://coolors.co/3eaf7c-444444-cccccc-222222-ffffff
-$primary: $crayola;
-$secondary: $onyx;
-$light: $_light;
-$dark: $eerie;
-$white: $_white;
+// https://coolors.co/0b090a-161a1d-660708-a4161a-ba181b-e5383b-b1a7a6-d3d3d3-f5f3f4-ffffff
+$primary: #E5383B;
+$secondary: #660708;
+$light: #D3D3D3;
+$dark: #0B090A;
+$white: #FFFFFF;
 
-// Inverse for dark theme.
-$body-bg: $dark;
-$body-color: $light;
+// Light theme.
+$body-bg: $white;
+$body-color: $dark;

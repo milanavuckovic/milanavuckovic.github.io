@@ -528,7 +528,7 @@ export default {
         font-weight: 500;
         text-transform: uppercase;
         transition: none;
-        color: $black;
+        color: $dark;
         height: 38px;
         line-height: 38px;
         background: $white;
@@ -541,9 +541,9 @@ export default {
         }
 
         &.active {
-            color: $black;
+            color: $dark;
             cursor: default;
-            background-color: $cultured;
+            background-color: $secondary;
             box-shadow: inset  0 0 7px rgba(0, 0, 0, 0.5);
         }
     }

@@ -2,7 +2,7 @@
     <li class="text-uppercase PostTag">
         <router-link
             v-bind:to="`/tag/${tag}`"
-            class="me-3">
+            class="me-2">
             <span>
                 {{ tag }}
             </span>

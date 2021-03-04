@@ -1,5 +1,5 @@
 /// <reference types="cypress" />
-import { title, description, base, themeConfig } from '../../src/.vuepress/config';
+import { title, base, themeConfig } from '../../src/.vuepress/config';
 
 describe('Homepage', () => {
     it('renders at root level', () => {
@@ -7,10 +7,11 @@ describe('Homepage', () => {
         cy.location('pathname').should('eq', base);
     });
 
-    it('has the home icon', () => {
+    it('has the logo and title', () => {
         cy.get('.navbar-brand').as('logo');
         cy.get('@logo').should('have.attr', 'href', base);
         cy.get('@logo').find('img').should('have.attr', 'src', themeConfig.logo);
+        cy.get('@logo').contains(title);
     });
 
     it('has the primary navigation items', () => {
@@ -25,23 +26,12 @@ describe('Homepage', () => {
         cy.get('.search-box').should('exist');
     });
 
-    it('has the feed button', () => {
-        cy.get('.Header__Nav__Right a.Feed').should('have.attr', 'href', themeConfig.feed.path);
-    });
-
-    it('has the contact buttons', () => {
-        themeConfig.contact.forEach((item) => {
-            cy.get(`.Header__Nav__Right a[title="${item.text}"]`).should('have.attr', 'href', item.link);
+    it('has header carousel images', () => {
+        themeConfig.carouselImages.forEach((image) => {
+            cy.get(`.Header__Carousel__Item[data-image="${image}"]`)
+                .should('have.css', 'background-image')
+                .and('match', new RegExp(image));
         });
-    });
-
-    it('has header background', () => {
-        cy.get('.Header--ImageBackground').should('have.css', 'background-image', `url("${themeConfig.coverHome}")`);
-    });
-
-    it('contains the primary title and the tag line', () => {
-        cy.contains('h1', title);
-        cy.contains('h2', description);
     });
 
     it('has number of configured posts', () => {
@@ -56,21 +46,12 @@ describe('Homepage', () => {
     });
 
     it('has footer links', () => {
-        cy.get('.Footer .order-1 [role="menuitem"] > a').each((item, index) => {
-            const itemConfig = themeConfig.footer.links[index];
-            const itemLink = itemConfig.link.replace(/\.md$/, '.html');
-            cy.get(item).should('have.attr', 'href', itemLink).contains(itemConfig.text);
+        themeConfig.footer.copyright.forEach((item) => {
+            cy.get(`.Footer__Nav__Item a:contains("${item.text}")`).should('have.attr', 'href', item.link);
         });
-        cy.get('.Footer .order-2 [role="menuitem"] > a').each((item, index) => {
-            const itemConfig = themeConfig.footer.syndication[index];
-            const itemLink = itemConfig.link.replace(/\.md$/, '.html');
-            cy.get(item).should('have.attr', 'href', itemLink)
-                .find('img').should('have.attr', 'src', itemConfig.image);
-        });
-        cy.get('.Footer .order-3 [role="menuitem"] > a').each((item, index) => {
-            const itemConfig = themeConfig.footer.copyright[index];
-            const itemLink = itemConfig.link.replace(/\.md$/, '.html');
-            cy.get(item).should('have.attr', 'href', itemLink).contains(itemConfig.text);
+
+        themeConfig.footer.links.forEach((item) => {
+            cy.get(`.Footer__Nav__Item a[title="${item.text}"]`).should('have.attr', 'href', item.link);
         });
     });
 });

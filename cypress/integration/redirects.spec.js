@@ -12,6 +12,7 @@ describe('Redirects', () => {
     it('serves an error for not found pages', () => {
         cy.visit('/foobar', { failOnStatusCode: false });
         cy.contains('h1', themeConfig.errorTitle);
-        cy.contains('h2', themeConfig.errorDescription);
+        cy.contains('small', themeConfig.errorDescription);
+        cy.contains('small', themeConfig.errorHint);
     });
 });

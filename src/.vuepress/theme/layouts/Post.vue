@@ -1,107 +1,92 @@
 <template>
     <article
-        class="container-lg px-3 Post"
+        class="Post"
         itemscope
         itemtype="https://schema.org/BlogPosting">
-        <div class="row justify-content-center">
-            <header
-                id="header"
-                class="col-md-9 Post__Header">
-                <ul
-                    v-if="$frontmatter.tags"
-                    class="d-flex flex-row mb-2 list-unstyled Post__Meta Post__Meta--Tags"
-                    itemprop="keywords">
-                    <PostTag
-                        v-for="tag in resolvedTags"
-                        v-bind:key="tag"
-                        v-bind:tag="tag" />
-                </ul>
-                <h1
-                    class="Post__Title"
-                    itemprop="name headline">
-                    {{ $frontmatter.title }}
-                </h1>
-                <p
-                    class="mt-4 mb-4 Post__Summary"
-                    itemprop="description">
-                    {{ $frontmatter.summary }}
-                </p>
-
-                <footer>
-                    <div
-                        v-if="$frontmatter.author"
-                        class="d-none"
-                        itemprop="publisher author"
-                        itemtype="http://schema.org/Person"
-                        itemscope>
-                        <span itemprop="name">
-                            {{ $frontmatter.author }}
-                        </span>
-                    </div>
-
-                    <div
-                        v-if="$frontmatter.date"
-                        class="text-uppercase Post__Meta Post__Meta--Date">
-                        <time
-                            itemprop="datePublished"
-                            v-bind:datetime="$frontmatter.date">
-                            {{ resolvePostDate($frontmatter.date) }}
-                        </time>
-                        <template v-if="$frontmatter.readingTime">
-                            <span class="mx-2">
-                                &bullet;
-                            </span>
-                            {{ $frontmatter.readingTime }}
-                        </template>
-                    </div>
+        <figure
+            v-if="$frontmatter.image && !$frontmatter.hideImage"
+            v-bind:style="{
+                backgroundImage: `url(${$frontmatter.image})`,
+            }"
+            class="position-relative Post__Image" />
+        <div class="container-md my-5">
+            <div class="row">
+                <section
+                    class="col-lg-8"
+                    itemprop="articleBody">
+                    <header class="col">
+                        <h1 itemprop="name headline">
+                            {{ $frontmatter.title }}
+                        </h1>
+                        <p
+                            class="fs-5 text-muted Post__Summary"
+                            itemprop="description">
+                            {{ $frontmatter.summary }}
+                        </p>
+                    </header>
+                    <Content class="Post__Content" />
+                </section>
+                <section
+                    class="col-lg-4"
+                    itemprop="articleSection">
+                    <Content
+                        class="Post__Content Post__Content--Sidebar"
+                        slot-key="sidebar" />
+                </section>
+            </div>
+            <div class="row">
+                <section
+                    class="col"
+                    itemprop="articleSection">
+                    <Content
+                        class="Post__Content Post__Content--Wide"
+                        slot-key="wide" />
+                </section>
+            </div>
+            <div class="row">
+                <footer class="col-lg-8">
+                    <ul
+                        class="d-flex flex-row mb-2 list-unstyled Post__Meta"
+                        itemprop="keywords">
+                        <li
+                            v-if="$frontmatter.date"
+                            class="mx-2 Post__Meta--Separator">
+                            ▪
+                        </li>
+                        <li
+                            v-if="$frontmatter.date"
+                            class="text-uppercase Post__Meta--Date">
+                            <time
+                                pubdate
+                                itemprop="datePublished"
+                                v-bind:datetime="$frontmatter.date">
+                                {{ resolvePostDate($frontmatter.date) }}
+                            </time>
+                        </li>
+                        <li
+                            v-if="$frontmatter.tags"
+                            class="mx-2 Post__Meta--Separator">
+                            ▪
+                        </li>
+                        <PostTag
+                            v-for="tag in resolvedTags"
+                            v-bind:key="tag"
+                            v-bind:tag="tag" />
+                    </ul>
                 </footer>
-            </header>
+            </div>
         </div>
-
-        <div class="row">
-            <figure
-                v-if="$frontmatter.image && !$frontmatter.hideImage"
-                class="col Post__FullImage">
-                <img
-                    v-bind:src="$frontmatter.image"
-                    v-bind:alt="$frontmatter.title"
-                    sizes="(max-width: 800px) 400px, (max-width: 1170px) 1170px, 2000px"
-                    class="rounded w-100">
-            </figure>
-        </div>
-
-        <div class="row justify-content-center">
-            <section
-                class="col-md-9"
-                itemprop="articleBody">
-                <Content class="Post__Content" />
-            </section>
-        </div>
-
-        <div class="row">
-            <section
-                class="col"
-                itemprop="articleBody">
-                <Content
-                    class="Post__Content"
-                    slot-key="wide" />
-            </section>
-        </div>
-
-        <Toc class="position-fixed Toc" />
     </article>
 </template>
 
 <script>
 import PostTag from '@theme/components/PostTag';
-import Toc from '@theme/components/Toc';
 import moment from 'moment';
 import zoom from 'medium-zoom';
 
 export default {
     components: {
         PostTag,
-        Toc,
     },
 
     data () {
@@ -136,7 +121,7 @@ export default {
 
     methods: {
         resolvePostDate (date) {
-            return moment(date).format(this.$themeConfig.dateFormat || 'ddd MMM DD YYYY');
+            return moment(date).fromNow();
         },
 
         initMediumZoom () {
@@ -151,120 +136,39 @@ export default {
 
 <style lang="scss">
 .Post {
-    &__Header {
-        padding-top: 70px;
-        padding-bottom: 50px;
-
-        @media (max-width: 992px) {
-            padding-top: 50px;
-            padding-bottom: 40px;
-        }
-
-        @media (max-width: 768px) {
-            padding-top: 20px;
-            padding-bottom: 30px;
-        }
-    }
-
-    &__Title {
-        font-size: 2.25rem;
-
-        @media (min-width: 768px) {
-            font-size: 3rem;
-        }
-
-        @media (min-width: 992px) {
-            font-size: 3.5rem;
-        }
-    }
-
     &__Summary {
-        color: $spanish;
-        font-family: 'Garamond', serif;
-        font-weight: 300;
-        font-size: 1.125rem;
-
-        @media (min-width: 768px) {
-            font-size: 1.3125rem;
-        }
-
-        @media (min-width: 992px) {
-            font-size: 1.4375rem;
-        }
+        font-family: "Montserrat", sans-serif;
+        font-weight: 400;
     }
 
     &__Meta {
-        &--Tags {
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.2px;
+        font-size: 0.9em;
 
-            a {
-                color: $primary;
-
-                &:hover {
-                    text-decoration: underline;
-                }
-            }
+        &--Separator {
+            color: $secondary;
         }
 
         &--Date {
-            font-size: 0.75rem;
             font-weight: 500;
-            color: $spanish;
-            letter-spacing: 0.2px;
+        }
+
+        .PostTag {
+            font-weight: 600;
         }
     }
 
-    &__FullImage {
-        margin-bottom: 30px;
+    &__Image {
+        margin-top: -62px;
+        background: $dark no-repeat 50%;
+        background-size: auto;
+        background-size: cover;
+        height: 480px;
     }
 
     &__Content {
-        padding-bottom: 50px;
-        font-family: 'Garamond', serif;
-        font-size: 1rem;
-
-        @media (min-width: 768px) {
-            font-size: 1.125rem;
-        }
-
-        @media (min-width: 992px) {
-            font-size: 1.25rem;
-        }
-
-        @media (max-width: 992px) {
-            padding-bottom: 50px;
-        }
-
-        @media (max-width: 768px) {
-            padding-bottom: 30px;
-        }
-
-        &:empty {
-            display: none;
-        }
-
-        a {
-            color: $primary;
-
-            &:hover {
-                text-decoration: underline;
-            }
-
-            & > span > .icon.outbound {
-                color: $silver;
-                margin-left: 4px;
-
-                &:hover {
-                    color: $primary;
-                }
-            }
-        }
-
         em,
         strong {
-            color: $white;
+            color: $secondary;
         }
 
         img {
@@ -272,17 +176,6 @@ export default {
             display: block;
             margin: 0 auto;
             border-radius: 0.25em;
-
-            & + span > .icon.outbound {
-                color: $silver;
-                float: right;
-                margin-right: -20px;
-                margin-top: -15px;
-
-                &:hover {
-                    color: $primary;
-                }
-            }
 
             &[src*='#invert'] {
                 filter: invert(100%);
@@ -317,14 +210,12 @@ export default {
         h4,
         h5,
         h6 {
-            color: $cultured;
-            margin-top: 1em;
+            color: $dark;
         }
 
         code {
             color: $white;
-            background: $rich;
-            font-weight: 400 !important;
+            background: $dark;
             border-radius: 0.25em;
         }
 
@@ -336,10 +227,10 @@ export default {
         }
 
         pre {
-            font-size: 0.875rem;
+            font-size: 14px;
             margin: 21px 0;
-            color: $cultured;
-            background: $rich;
+            color: $white;
+            background: #111;
             border-radius: 0.25em;
         }
 
@@ -357,57 +248,49 @@ export default {
             width: auto;
             border-spacing: 0;
             border-collapse: collapse;
-            font-family: 'Helvetica', sans-serif;
-            font-weight: 500;
             vertical-align: top;
 
             td {
-                font-size: 1rem;
+                font-size: 16px;
             }
 
             td:first-child {
                 text-align: center;
             }
 
-            td:last-child {
-                background-image: linear-gradient(270deg, $white 50%, hsla(0, 0%, 100%, 0));
-                background-position: 100% 0;
-                background-size: 20px 100%;
-                background-repeat: no-repeat;
-            }
-
             th {
-                color: $rich;
-                font-size: 0.75rem;
-                font-weight: 600;
+                font-size: 12px;
                 letter-spacing: .2px;
                 text-align: center;
                 text-transform: uppercase;
-                background-color: $white;
             }
 
             td,
             th {
                 padding: 6px 12px;
-                border: 1px solid $cultured;
-            }
-
-            td:first-child {
-                background-image: linear-gradient(90deg, $jet 50%, rgba(25, 27, 31, 0));
-            }
-
-            td:last-child {
-                background-image: linear-gradient(270deg, $jet 50%, rgba(25, 27, 31, 0));
+                border: 1px solid $dark;
             }
 
             th {
-                color: hsla(0, 0%, 100%, .85);
-                background-color: $davys;
+                color: $white;
+                background-color: $dark;
             }
 
             td,
             th {
-                border: 1px solid $davys;
+                border: 1px solid $light;
+            }
+        }
+
+        blockquote {
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+            margin: 0 0 1rem;
+        }
+
+        &--Sidebar {
+            img {
+                margin-bottom: 15px;
             }
         }
     }
@@ -415,7 +298,7 @@ export default {
 
 .medium-zoom {
     &-overlay {
-        background: $black !important;
+        background: $dark !important;
         z-index: 1020;
     }
 

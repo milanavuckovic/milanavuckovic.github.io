@@ -149,11 +149,11 @@ export default {
 
     &__Canvas {
         margin: 0 auto;
-        box-shadow: 5px 5px 30px $rich;
+        box-shadow: 5px 5px 30px $dark;
 
         &--Landscape {
             margin: 6rem auto 5rem;
-            box-shadow: 5px -5px 30px $rich;
+            box-shadow: 5px -5px 30px $dark;
             transform: rotate(90deg);
         }
     }
@@ -207,7 +207,7 @@ export default {
         font-weight: 500;
         text-transform: uppercase;
         transition: none;
-        color: $black;
+        color: $dark;
         height: 38px;
         line-height: 38px;
         background: $white;
@@ -220,8 +220,8 @@ export default {
         }
 
         &.active {
-            color: $black;
-            background-color: $cultured;
+            color: $dark;
+            background-color: $secondary;
             box-shadow: inset  0 0 7px rgba(0, 0, 0, 0.5);
 
             &:hover {

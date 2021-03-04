@@ -31,7 +31,7 @@ export default {
     }
 
     &__Badge {
-        background: $black;
+        background: $dark;
     }
 }
 </style>

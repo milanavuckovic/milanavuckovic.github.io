@@ -1,12 +1,10 @@
-# vuepress-blog-template
+# milanavuckovic.github.io
 
-[![Build Status](https://img.shields.io/github/workflow/status/dvuckovic/vuepress-blog-template/Test)](https://github.com/dvuckovic/vuepress-blog-template/actions/workflows/checks.yml)
-[![Powered by VuePress](https://img.shields.io/github/package-json/dependency-version/dvuckovic/vuepress-blog-template/dev/vuepress)](https://vuepress.vuejs.org)
-[![License](https://img.shields.io/github/package-json/license/dvuckovic/vuepress-blog-template?color=white)](http://www.wtfpl.net/)
+[![Build Status](https://img.shields.io/github/workflow/status/milanavuckovic/milanavuckovic.github.io/Test)](https://github.com/milanavuckovic/milanavuckovic.github.io/actions/workflows/checks.yml)
+[![Powered by VuePress](https://img.shields.io/github/package-json/dependency-version/milanavuckovic/milanavuckovic.github.io/dev/vuepress)](https://vuepress.vuejs.org)
+[![License](https://img.shields.io/github/package-json/license/milanavuckovic/milanavuckovic.github.io?color=white)](http://www.wtfpl.net/)
 
-A VuePress blog template for static websites.
-
-[Demo](https://vuepress.dvuckovic.com)
+VuePress instance for the website [back2string.art](https://back2string.art).
 
 ## Installation
 

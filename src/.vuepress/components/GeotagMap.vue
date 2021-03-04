@@ -191,7 +191,7 @@ export default {
         font-weight: 500;
         text-transform: uppercase;
         transition: none;
-        color: $black;
+        color: $dark;
         height: 38px;
         line-height: 38px;
         background: $white;
@@ -206,7 +206,7 @@ export default {
         }
 
         &.active {
-            background: $gainsboro;
+            background: $secondary;
         }
     }
 }
