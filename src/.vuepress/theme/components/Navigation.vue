@@ -17,7 +17,7 @@
                 back<span class="Accent">2</span>string<span class="Accent">.</span>art
             </NavLink>
             <button
-                v-bind:disabled="isMenuTransitioning"
+                v-bind:disabled="!isUnitTestMode && isMenuTransitioning"
                 class="navbar-toggler p-1"
                 type="button"
                 data-bs-toggle="collapse"
@@ -68,6 +68,10 @@ export default {
     computed: {
         scrolledDocument () {
             return this.scrollY > 415;
+        },
+
+        isUnitTestMode () {
+            return typeof Cypress !== 'undefined';
         },
     },
 
