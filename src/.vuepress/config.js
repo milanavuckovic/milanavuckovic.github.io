@@ -90,6 +90,7 @@ module.exports = {
         errorDescription: "Sorry, but we couldn't find the page you were looking for...",
         errorHint: 'Perhaps you can search for it or you can go back to the home page instead.',
         ga: true,
+        seo: true,
         globalPagination: {
             lengthPerPage: 12,
         },
