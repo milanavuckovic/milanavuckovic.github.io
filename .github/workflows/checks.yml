@@ -1,4 +1,4 @@
-name: Test # & Deploy
+name: Test & Deploy
 
 # Controls when the action will run.
 #   Triggers the workflow on all pushes & pull requests.
@@ -42,15 +42,15 @@ jobs:
     - name: Test ✅
       run: npm test
 
-    # - name: Deploy 🚀
-    #   if: success() && github.ref == 'refs/heads/main'
-    #   uses: crazy-max/ghaction-github-pages@v2
-    #   with:
-    #     author: Github Workflow <noreply@github.com>
-    #     commit_message: Deployed to Github Pages.
-    #     fqdn: example.com
-    #     build_dir: dist/
-    #     repo: username/username.github.io
-    #     target_branch: gh-pages
-    #   env:
-    #     GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+    - name: Deploy 🚀
+      if: success() && github.ref == 'refs/heads/main'
+      uses: crazy-max/ghaction-github-pages@v2
+      with:
+        author: Milana Vuckovic <milana47@gmail.com>
+        commit_message: Deployed to Github Pages.
+        fqdn: back2string.art
+        build_dir: dist/
+        repo: milanavuckovic/milanavuckovic.github.io
+        target_branch: gh-pages
+      env:
+        GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}

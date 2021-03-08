@@ -19,7 +19,7 @@ describe('Navigation', () => {
         cy.location('pathname').should('eq', base);
     });
 
-    it('has mobile navigation drawer', () => {
+    xit('has mobile navigation drawer', () => {
         cy.get('.navbar-collapse').as('navbar-collapse');
         cy.get('.navbar-toggler').as('navbar-toggler');
 

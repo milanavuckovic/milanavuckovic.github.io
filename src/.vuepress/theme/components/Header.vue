@@ -75,6 +75,10 @@ export default {
             background-size: auto;
             background-size: cover;
             height: 480px;
+
+            @media (max-width: 767px) {
+                height: 360px;
+            }
         }
     }
 }
