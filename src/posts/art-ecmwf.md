@@ -7,10 +7,10 @@ tags:
   - post
 ---
 
-At the time when I'm writing this (March 2021) Covid19 has been with us in Europe for about a year. And just a few weeks before we went into first lockdown, one of the last events I attended was The First Science and Art exhibition at my workplace.  
+At the time when I'm writing this (March 2021) Covid19 has been with us in Europe for about a year. And just a few weeks before we went into first lockdown, one of the last events I had attended was The First Science and Art exhibition at my workplace. 
 The exhibition was organized by [Louise Arnal](https://twitter.com/ArnalLouise) and the authors of all artworks were my colleagues and their family members. Around 80 pieces of art from 27 artists were displayed for a week in our Weather room. Who knew we have so many talented people!
 
-A colleague who knew I did a bit of string art suggested that I submit something, but I wasn't sure, as I was away from that for such a long time. But I decided to give it a go. Nothing to lose and it might be fun. :) The timing was perfect, because I was going to Serbia around that time anyways, so I could bring the materials and tools I needed.
+A colleague who knew I did a bit of string art suggested that I submit something, but I wasn't sure, as I had been away from that for such a long time. But I decided to give it a go. Nothing to lose and it might be fun. :) The timing was perfect, because I was going to Serbia around that time anyways, so I could bring the materials and tools I needed.
 
 The feedback was beyond amazing! I actually won the 3rd place 🥉 🎉 🥳
 
