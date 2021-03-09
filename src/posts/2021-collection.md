@@ -7,7 +7,7 @@ tags:
   - collection
 paths:
   high: /images/photos/
-  low: /images/photos/
+  low: /images/photos/thumbs/
 albums:
   - id: All
     photos:
