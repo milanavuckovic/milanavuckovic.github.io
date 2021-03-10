@@ -36,13 +36,6 @@ module.exports = {
                 href: 'https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700|Open+Sans:400,700',
             },
         ],
-        [
-            'link',
-            {
-                rel: 'stylesheet',
-                href: 'https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css',
-            },
-        ],
     ],
     scss: {
         additionalData: '@import "@/theme/styles/_variables";',
