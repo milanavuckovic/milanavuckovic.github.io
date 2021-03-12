@@ -35,7 +35,9 @@
                             <NavLink
                                 v-bind:link="item.link"
                                 v-bind:title="item.text">
-                                <BootstrapIcon v-bind:icon="item.icon" />
+                                <BootstrapIcon
+                                    v-bind:icon="item.icon"
+                                    size="lg" />
                             </NavLink>
                         </li>
                     </ul>

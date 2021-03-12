@@ -28,7 +28,7 @@
                 v-on:click="isMenuOpen = !isMenuOpen">
                 <BootstrapIcon
                     v-bind:icon="isMenuOpen ? 'x' : 'list'"
-                    size="21" />
+                    size="lg" />
             </button>
             <div
                 id="navbar"
