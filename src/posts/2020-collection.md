@@ -74,28 +74,28 @@ albums:
         size: 2160x1440
       - name: IMG_1468.JPG
         title: Photo
-        size: 2160x1440    
+        size: 2160x1440
       - name: IMG_1497.JPG
         title: Photo
         size: 2160x1440
       - name: IMG_1513.JPG
         title: Photo
-        size: 2160x1440 
+        size: 2160x1440
       - name: IMG_1505.JPG
         title: Photo
-        size: 2160x1440  
+        size: 2160x1440
 ---
 
 Almost full collection of pictures I did in 2020.
 
-Circles (looks like I have a thing for circles....)
+## Circles (looks like I have a thing for circles....)
 
 <PhotoAlbum id="Circles" />
 
-Squares
+## Squares
 
 <PhotoAlbum id="Squares" />
 
-Others
+## Others
 
 <PhotoAlbum id="Others" />

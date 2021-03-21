@@ -1,7 +1,7 @@
 ---
 title: 2021 Collection
 image: /images/carousel/IMG_1520.JPG
-summary: Collection of string art pictures from 2021  
+summary: Collection of string art pictures from 2021
 date: 2021-03-09
 tags:
   - collection
@@ -37,7 +37,13 @@ albums:
         size: 2160x1440
       - name: IMG_1520.JPG
         title: Photo
-        size: 2160x1440 
+        size: 2160x1440
+      - name: IMG_1629.JPG
+        title: Photo
+        size: 2160x1440
+      - name: IMG_1630.JPG
+        title: Photo
+        size: 2160x1440
 ---
 
 Collection of pictures I did so far in 2021.
