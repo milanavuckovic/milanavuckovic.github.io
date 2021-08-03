@@ -59,6 +59,12 @@ albums:
       - name: IMG_1731.JPG
         title: Photo
         size: 2160x1440
+      - name: IMG_0341.JPG
+        title: Photo
+        size: 2160x1440
+      - name: IMG_0342.JPG
+        title: Photo
+        size: 2160x1440
       - name: IMG_0404.JPG
         title: Photo
         size: 2160x1440
