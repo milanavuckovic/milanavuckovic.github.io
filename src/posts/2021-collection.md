@@ -71,6 +71,15 @@ albums:
       - name: IMG_0411.JPG
         title: Photo
         size: 2160x1440
+      - name: IMG_0417.JPG
+        title: Photo
+        size: 2160x1440
+      - name: IMG_0418.JPG
+        title: Photo
+        size: 2160x1440
+      - name: IMG_0420.JPG
+        title: Photo
+        size: 2160x1440
 ---
 
 Collection of pictures I did so far in 2021.
