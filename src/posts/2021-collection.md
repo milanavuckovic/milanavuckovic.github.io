@@ -92,6 +92,21 @@ albums:
       - name: IMG_0501.JPG
         title: Photo
         size: 2160x1440
+      - name: IMG_0001.JPG
+        title: Photo
+        size: 2160x1440
+      - name: IMG_0002_1.JPG
+        title: Photo
+        size: 2160x1440
+      - name: IMG_0008.JPG
+        title: Photo
+        size: 2160x1440
+      - name: IMG_0009.JPG
+        title: Photo
+        size: 2160x1440
+      - name: IMG_0012.JPG
+        title: Photo
+        size: 2160x1440
 ---
 
 Collection of pictures I did so far in 2021.
