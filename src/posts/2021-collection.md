@@ -2,7 +2,7 @@
 title: 2021 Collection
 image: /images/carousel/IMG_1520.JPG
 summary: Collection of string art pictures from 2021
-date: 2021-03-09
+date: 2021-12-31
 tags:
   - collection
 paths:
