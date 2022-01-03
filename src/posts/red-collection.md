@@ -9,7 +9,7 @@ tags:
 
 ::: slot wide
 
-White-orange-red combination of colours seems to be very popular. Here is a selection of red pictured I did in 2020.  
+White-orange-red combination of colours seems to be very popular. Here is a selection of red pictured I did so far.  
 They all ended up in my colleagues' homes making their video call backgrounds more alive.
 
 ![Photo 1](/images/photos/IMG_1457.JPG#half)
@@ -20,6 +20,10 @@ They all ended up in my colleagues' homes making their video call backgrounds mo
 ![Photo 6](/images/photos/IMG_1496.JPG#half)
 ![Photo 7](/images/photos/IMG_1514.JPG#half)
 ![Photo 8](/images/photos/IMG_1546.JPG#half)
+![Photo 9](/images/photos/IMG_0420.JPG#half)
+![Photo 10](/images/photos/IMG_1730.JPG#half)
+![Photo 11](/images/photos/IMG_0404.JPG#half)
+![Photo 12](/images/photos/IMG_1720.JPG#half)
 
 These four are part of my friend Carlos' WFH setup :)
 
