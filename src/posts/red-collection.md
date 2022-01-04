@@ -2,7 +2,7 @@
 title: Red Collection
 image: /images/carousel/IMG_1456.JPG
 summary: Collection of red string art pictures
-date: 2021-03-04
+date: 2022-01-03
 tags:
   - collection
 ---

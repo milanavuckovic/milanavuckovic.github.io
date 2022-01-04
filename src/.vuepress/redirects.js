@@ -11,4 +11,8 @@ export default [
         from: '/2021/03/07/blue-collection/',
         to: '/2022/01/02/blue-collection/',
     },
+    {
+        from: '/2021/03/04/red-collection/',
+        to: '/2022/01/03/red-collection/',
+    },
 ];
