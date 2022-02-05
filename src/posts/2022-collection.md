@@ -19,9 +19,23 @@ albums:
       - name: IMG_0522.JPG
         title: Photo
         size: 2160x1440
+      - name: IMG_0530.JPG
+        title: Photo
+        size: 2160x1440
   - id: Wood slices
     photos:
       - name: IMG_0526.JPG
+        title: Photo
+        size: 2160x1440
+      - name: IMG_0531.JPG
+        title: Photo
+        size: 2160x1440
+      - name: IMG_0532.JPG
+        title: Photo
+        size: 2160x1440
+  - id: Misc
+    photos:
+      - name: IMG_0529.JPG
         title: Photo
         size: 2160x1440
 ---
@@ -39,3 +53,7 @@ Collection of pictures I did in 2022.
 ## Wood Slices
 
 <PhotoAlbum id="Wood slices" />
+
+## Misc
+
+<PhotoAlbum id="Misc" />
