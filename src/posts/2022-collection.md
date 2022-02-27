@@ -33,9 +33,21 @@ albums:
       - name: IMG_0532.JPG
         title: Photo
         size: 2160x1440
+      - name: IMG_0536.JPG
+        title: Photo
+        size: 2160x1440
+      - name: IMG_0537.JPG
+        title: Photo
+        size: 2160x1440
+      - name: IMG_0538.JPG
+        title: Photo
+        size: 2160x1440
   - id: Misc
     photos:
       - name: IMG_0529.JPG
+        title: Photo
+        size: 2160x1440
+      - name: IMG_0535.JPG
         title: Photo
         size: 2160x1440
 ---
