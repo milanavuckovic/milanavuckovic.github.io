@@ -22,6 +22,9 @@ albums:
       - name: IMG_0530.JPG
         title: Photo
         size: 2160x1440
+      - name: IMG_0560.JPG
+        title: Photo
+        size: 2160x1440
   - id: Wood slices
     photos:
       - name: IMG_0526.JPG
@@ -40,6 +43,15 @@ albums:
         title: Photo
         size: 2160x1440
       - name: IMG_0538.JPG
+        title: Photo
+        size: 2160x1440
+      - name: IMG_0561.JPG
+        title: Photo
+        size: 2160x1440
+      - name: IMG_0564.JPG
+        title: Photo
+        size: 2160x1440
+      - name: IMG_0566.JPG
         title: Photo
         size: 2160x1440
   - id: Misc
