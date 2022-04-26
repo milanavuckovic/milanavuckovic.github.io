@@ -9,6 +9,11 @@ paths:
   high: /images/photos/
   low: /images/photos/thumbs/
 albums:
+  - id: Circles
+    photos:
+      - name: IMG_0567.JPG
+        title: Photo
+        size: 2160x1440
   - id: Spirographs
     photos:
       - name: IMG_0523.JPG
@@ -54,6 +59,12 @@ albums:
       - name: IMG_0566.JPG
         title: Photo
         size: 2160x1440
+      - name: IMG_0568.JPG
+        title: Photo
+        size: 2160x1440
+      - name: IMG_0569.JPG
+        title: Photo
+        size: 2160x1440
   - id: Misc
     photos:
       - name: IMG_0529.JPG
@@ -65,6 +76,10 @@ albums:
 ---
 
 Collection of pictures I did in 2022.
+
+## Circles
+
+<PhotoAlbum id="Circles" />
 
 ## Spirals
 
