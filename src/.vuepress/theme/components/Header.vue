@@ -68,7 +68,7 @@ export default {
 <style lang="scss">
 .Header {
     &__Carousel {
-        margin-top: -62px;
+        margin-top: -100px;
 
         &__Item {
             background: $dark no-repeat 50%;

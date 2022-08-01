@@ -10,7 +10,7 @@ const env = {
 };
 
 module.exports = {
-    title: 'back2string.art',
+    title: 'Back to String Art Blog',
     description: 'Doing string art to kill time in the lockdown..',
     base: '/',
     dest: 'dist',
@@ -64,7 +64,7 @@ module.exports = {
     },
     themeConfig: {
         env,
-        logo: '/images/logo.svg',
+        logo: '/images/new-logo.png',
         carouselImages: [
             '/images/carousel/IMG_1452.JPG',
             '/images/carousel/IMG_1453.JPG',
@@ -173,7 +173,7 @@ module.exports = {
         footer: {
             copyright: [
                 {
-                    text: `© ${new Date().getFullYear()} back2string.art`,
+                    text: `© ${new Date().getFullYear()} Back to String Art Blog`,
                     link: '/',
                 },
                 {

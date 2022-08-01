@@ -11,10 +11,7 @@
                 <img
                     v-if="$themeConfig.logo"
                     v-bind:src="$themeConfig.logo"
-                    v-bind:alt="$site.title"
-                    width="36"
-                    height="36">
-                back<span class="Accent">2</span>string<span class="Accent">.</span>art
+                    v-bind:alt="$site.title">
             </NavLink>
             <button
                 v-bind:disabled="!isUnitTestMode && isMenuTransitioning"
@@ -158,10 +155,20 @@ export default {
     &__Brand {
         &.navbar-brand {
             text-shadow: var(--bs-dark) 1px 1px 0px;
+            // width: 100%;
 
             img {
                 -webkit-filter: drop-shadow(1px 1px 0px var(--bs-dark));
                 filter: drop-shadow(1px 1px 0px var(--bs-dark));
+                height: 72px;
+
+                @media (max-width: 992px) {
+                    height: 52px;
+                }
+
+                @media (max-width: 768px) {
+                    height: 48px;
+                }
             }
 
             .Accent {
@@ -171,10 +178,6 @@ export default {
             &:hover {
                 text-decoration: none;
             }
-        }
-
-        #logo {
-            fill: $white;
         }
     }
 

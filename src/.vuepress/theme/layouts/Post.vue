@@ -158,7 +158,7 @@ export default {
     }
 
     &__Image {
-        margin-top: -62px;
+        margin-top: -100px;
         background: $dark no-repeat 50%;
         background-size: auto;
         background-size: cover;

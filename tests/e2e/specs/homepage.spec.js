@@ -6,11 +6,10 @@ describe('Homepage', () => {
         cy.location('pathname').should('eq', base);
     });
 
-    it('has the logo and title', () => {
+    it('has the logo', () => {
         cy.get('.navbar-brand').as('logo');
         cy.get('@logo').should('have.attr', 'href', base);
-        cy.get('@logo').find('img').should('have.attr', 'src', themeConfig.logo);
-        cy.get('@logo').contains(title);
+        cy.get('@logo').find('img').should('have.attr', 'src', themeConfig.logo).and('have.attr', 'alt', title);
     });
 
     it('has the primary navigation items', () => {
