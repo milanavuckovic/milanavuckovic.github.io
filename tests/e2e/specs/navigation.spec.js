@@ -8,6 +8,7 @@ describe('Navigation', () => {
 
     it('navigates primary items', () => {
         themeConfig.nav.forEach((item) => {
+            if (/https?:\/\//.test(item.link)) return;
             cy.contains('a', item.text).click();
             cy.location('pathname').should('contain', item.link);
         });
