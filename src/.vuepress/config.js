@@ -162,6 +162,10 @@ module.exports = {
                 link: '/tag/post/',
             },
             {
+                text: 'Shop',
+                link: 'https://shop.back2string.art',
+            },
+            {
                 text: 'About',
                 link: '/about/',
             },
@@ -178,6 +182,11 @@ module.exports = {
                 },
             ],
             links: [
+                {
+                    text: 'Shop',
+                    link: 'https://shop.back2string.art',
+                    icon: 'cart-fill',
+                },
                 {
                     text: 'Twitter',
                     link: 'https://twitter.com/milanavuckovic3',
