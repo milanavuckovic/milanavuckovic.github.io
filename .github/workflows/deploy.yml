@@ -10,16 +10,13 @@ on:
     tags-ignore:
     - '**'
 
-  # Trigger the workflow on all pull requests
-  pull_request:
-
   # Allow workflow to be dispatched on demand
   workflow_dispatch:
 
 jobs:
   deploy:
     name: Test & Deploy
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout 🛎️
       uses: actions/checkout@v2
@@ -27,16 +24,15 @@ jobs:
     - name: Cache 💾
       uses: actions/cache@v2
       env:
-          cache-name: cache-npm
+        cache-name: cache-npm
       with:
-          path: |
-            ~/.npm
-            ~/.cache
-            **/node_modules
-          key: ubuntu-20.04-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+        path: |
+          ~/.npm
+          ~/.cache
+        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
 
     - name: Install 📦
-      run: npm install --no-save
+      run: npm ci --legacy-peer-deps
 
     - name: Setup 📢
       env:
@@ -49,7 +45,15 @@ jobs:
         echo OBJECT2VR_PLAYER=$OBJECT2VR_PLAYER >> .env
 
     - name: Test ✅
-      run: npm test
+      run: npm run ci-test
+
+    - name: Summary 📝
+      if: always()
+      run: |
+        cat JEST_RESULTS.md >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        cat CYPRESS_RESULTS.md >> $GITHUB_STEP_SUMMARY
 
     - name: Deploy 🚀
       if: success() && github.ref == 'refs/heads/main'
