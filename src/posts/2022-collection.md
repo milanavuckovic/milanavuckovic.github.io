@@ -14,9 +14,18 @@ albums:
       - name: IMG_0567.JPG
         title: Photo
         size: 2160x1440
+      - name: IMG_0645.JPG
+        title: Photo
+        size: 2160x1440
   - id: Spirographs
     photos:
       - name: IMG_0523.JPG
+        title: Photo
+        size: 2160x1440
+      - name: IMG_0642.JPG
+        title: Photo
+        size: 2160x1440
+      - name: IMG_0644.JPG
         title: Photo
         size: 2160x1440
   - id: Spirals
@@ -28,6 +37,15 @@ albums:
         title: Photo
         size: 2160x1440
       - name: IMG_0560.JPG
+        title: Photo
+        size: 2160x1440
+      - name: IMG_0570.JPG
+        title: Photo
+        size: 2160x1440
+      - name: IMG_0572.JPG
+        title: Photo
+        size: 2160x1440
+      - name: IMG_0643.JPG
         title: Photo
         size: 2160x1440
   - id: Wood slices
@@ -74,12 +92,6 @@ albums:
         title: Photo
         size: 2160x1440
       - name: IMG_0535.JPG
-        title: Photo
-        size: 2160x1440
-      - name: IMG_0570.JPG
-        title: Photo
-        size: 2160x1440
-      - name: IMG_0572.JPG
         title: Photo
         size: 2160x1440
 ---
