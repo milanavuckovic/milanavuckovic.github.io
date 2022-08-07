@@ -94,6 +94,9 @@ albums:
       - name: IMG_0535.JPG
         title: Photo
         size: 2160x1440
+      - name: IMG_0659.JPG
+        title: Photo
+        size: 2160x1440
 ---
 
 Collection of pictures I did in 2022.
