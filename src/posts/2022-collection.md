@@ -92,6 +92,9 @@ albums:
       - name: IMG_0814.JPG
         title: Photo
         size: 2160x1440
+      - name: IMG_1020.JPG
+        title: Photo
+        size: 2160x1440
   - id: Misc
     photos:
       - name: IMG_0529.JPG
@@ -104,6 +107,15 @@ albums:
         title: Photo
         size: 2160x1440
       - name: IMG_0811.JPG
+        title: Photo
+        size: 2160x1440
+      - name: IMG_1018.JPG
+        title: Photo
+        size: 2160x1440
+      - name: IMG_1019.JPG
+        title: Photo
+        size: 2160x1440
+      - name: IMG_1021.JPG
         title: Photo
         size: 2160x1440
 ---
