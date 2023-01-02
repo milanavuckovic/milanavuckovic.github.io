@@ -66,6 +66,7 @@ module.exports = {
         env,
         logo: '/images/new-logo.png',
         carouselImages: [
+            '/images/carousel/IMG_1065.JPG',
             '/images/carousel/IMG_1452.JPG',
             '/images/carousel/IMG_1453.JPG',
             '/images/carousel/IMG_1455.JPG',
