@@ -11,7 +11,7 @@ VuePress instance for the website [back2string.art](https://back2string.art).
 ### Dependencies
 
 ```sh
-npm install --no-save
+npm install --no-save --legacy-peer-deps
 ```
 
 ### Setup Environment
