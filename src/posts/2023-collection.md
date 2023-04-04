@@ -17,6 +17,17 @@ albums:
       - name: IMG_1184.JPG
         title: Photo
         size: 2160x1440
+  - id: Misc
+    photos:
+      - name: IMG_1186.JPG
+        title: Photo
+        size: 2160x1440
+      - name: IMG_1187.JPG
+        title: Photo
+        size: 2160x1440
+      - name: IMG_1188.JPG
+        title: Photo
+        size: 2160x1440
   - id: Wood slices
     photos:
       - name: IMG_1061.JPG
@@ -44,6 +55,30 @@ albums:
         title: Photo
         size: 2160x1440
       - name: IMG_1179.JPG
+        title: Photo
+        size: 2160x1440
+      - name: IMG_1189.JPG
+        title: Photo
+        size: 2160x1440
+      - name: IMG_1190.JPG
+        title: Photo
+        size: 2160x1440
+      - name: IMG_1191.JPG
+        title: Photo
+        size: 2160x1440
+      - name: IMG_1196.JPG
+        title: Photo
+        size: 2160x1440
+      - name: IMG_1197.JPG
+        title: Photo
+        size: 2160x1440
+      - name: IMG_1198.JPG
+        title: Photo
+        size: 2160x1440
+      - name: IMG_1199.JPG
+        title: Photo
+        size: 2160x1440
+      - name: IMG_1200.JPG
         title: Photo
         size: 2160x1440
 ---
